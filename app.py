@@ -2,6 +2,7 @@ import random
 from flask import Flask, render_template, request, flash
 
 app = Flask(__name__)
+application = app
 app.secret_key="asdfa-90320923h09fh3920ed0osfjka;sdkvj; q23"
 
 ARMOR_ENCHANTS = [
