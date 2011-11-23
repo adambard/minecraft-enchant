@@ -1,0 +1,85 @@
+body{
+    background: #ddd;
+    font-family: arial, sans-serif;
+}
+
+.form,
+.result{
+    margin-top: 20px;
+}
+
+
+.msg ul,
+.msg ul li{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.msg ul li{
+    padding: 5px;
+    background: #fcc;
+    border: 1px solid #f00;
+    color: #c00;
+    font-weight: bold;
+}
+
+.container{
+    width: 400px;
+    margin: 0px auto;
+    border-top: 1px solid #fff;
+    background: #eee;
+    box-shadow: 0px 0px 1px 1px #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+form, fieldset{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+fieldset{
+    padding-left: 100px;
+    position: relative;
+}
+
+fieldset ul,
+fieldset ul li{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+fieldset ul li label{
+    display: block;
+    width: 100px;
+
+    position: absolute;
+    left: 0px;
+}
+
+input, select, textarea{
+    font-size: inherit;
+    font-family: inherit;
+}
+
+fieldset ul li.submit{
+    margin-top: 20px;
+    text-align: center;
+    margin-left: -100px;
+}
+
+.result{
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.result ul,
+.result ul li{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}

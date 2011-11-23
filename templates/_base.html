@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Minecraft Enchant Simulator</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Enchantment Calculator</h1>
+            <div class="msg">
+                <ul>
+                {% for category, msg in get_flashed_messages(with_categories=true) %}
+                <li class="{{ category }}">{{ msg }}</li>
+                {% endfor %}
+            </ul>
+            </div>
+            <div class="form">
+                {% block form %}
+                <form action="/result/" method="get">
+                    <fieldset>
+                        <ul>
+                            <li>
+                                <label for="slot">Slot</label>
+                                <select name="slot" value="{{ slot }}">
+                                    <option value="tool"{% if slot=='tool' %} selected="selected"{% endif %}>Tool</option>
+                                    <option value="sword"{% if slot=='sword' %} selected="selected"{% endif %}>Sword</option>
+                                    <option value="armor"{% if slot=='armor' %} selected="selected"{% endif %}>Chest/Legs</option>
+                                    <option value="head"{% if slot=='head' %} selected="selected"{% endif %}>Head</option>
+                                    <option value="feet"{% if slot == 'feet' %} selected="selected" {% endif %}>Feet</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="material">Material</label>
+                                <select name="material" value="{{ material }}">
+                                    <option value="wood"{% if material == 'wood' %} selected="selected"{% endif %}>Wood</option>
+                                    <option value="leather"{% if material == 'leather' %} selected="selected"{% endif %}>Leather</option>
+                                    <option value="stone"{% if material == 'stone' %} selected="selected"{% endif %}>Stone</option>
+                                    <option value="iron"{% if material == 'iron' %} selected="selected"{% endif %}>Iron</option>
+                                    <option value="gold"{% if material == 'gold' %} selected="selected"{% endif %}>Gold</option>
+                                    <option value="diamond"{% if material == 'diamond' %} selected="selected"{% endif %}>Diamond</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="level">Level</label>
+                                <input type="text" name="level" value="{{ level }}">
+                            </li>
+                            <li class="submit">
+                            <input type="submit" value="Enchant!">
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+                {% endblock %}
+            </div>
+            <div class="result">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+
+    </body>
+</html>
+
+
