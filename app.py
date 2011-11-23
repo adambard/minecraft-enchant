@@ -43,6 +43,17 @@ TOOL_ENCHANTS = [
 class InvalidCombination(Exception):
     pass
 
+def get_table_url(level, slot, material):
+    if slot == 'head':
+        slot = 'Helmet'
+    if slot == 'feet' or slot == 'foot':
+        slot = 'Boots'
+
+    return 'http://pernsteiner.org/minecraft/enchant/leveltables/{material}_{slot}_{level}.html'.format(
+        material=material.title(),
+        slot=slot.title()
+        level=level)
+
 def base_enchant_level(slot, material):
 
     if slot == 'sword' or slot == 'tool':
@@ -140,18 +151,11 @@ def result():
         flash("Invalid combination")
 
     return render_template('result.html',
+            table_url=get_table_url(level, slot, material),
             slot=slot,
             material=material,
             level=level,
             enchants=enchants)
-
-@app.route('/sword/')
-def sword():
-    return render_template('result.html')
-
-@app.route('/armor/')
-def armor():
-    return render_template('result.html')
 
 if __name__ == "__main__":
     import os
