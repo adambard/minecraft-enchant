@@ -107,24 +107,32 @@ def pick_enchant_fn(slot):
         """
         choices = [e for e in base_enchant_set if e[0] not in conflicts and e[2][0] <= level and e[3] >= level]
 
+        # There might be no choices. If so, no enchant.
         if len(choices) == 0:
             return []
 
+        # Build a weighted list of choices (1 entry per weight)
         weighted_choices = []
         for e in choices:
             for i in range(e[1]):
                 weighted_choices.append(e)
 
-        total_weight = sum(e[1] for e in choices)
-
+        # Pick one of them
         choice = random.choice(weighted_choices)
+        
+        # Downgrade the level
+        level = int(level / 2)
+
+        # Maybe we want to add another enchant, hmm?
         chance_of_continuing = (level + 1) / 50.
 
         if random.random() <= chance_of_continuing:
             conflicts = conflicts + [choice[0]] + choice[4]
-            return [choice] + pick_enchants(int(level/2), conflicts)
+            return [choice] + pick_enchants(level, conflicts)
 
         return [choice]
+        
+    # Return the function
     return pick_enchants
 
 
