@@ -90,7 +90,7 @@ def pick_enchant_fn(base_enchant_set):
 
         if random.random() <= chance_of_continuing:
             conflicts = conflicts + [choice[0]] + choice[4]
-            return [choice] + pick_enchants(level, conflicts)
+            return [choice] + pick_enchants(int(level/2), conflicts)
 
         return [choice]
     return pick_enchants
@@ -114,6 +114,10 @@ def result():
         level = int(request.args.get('level', 1))
     except ValueError:
         level = 1
+    if level < 0:
+        level = 0
+    if level > 50:
+        level = 50
     slot = request.args.get('slot', 'tool')
     material = request.args.get('material', 'diamond')
 
