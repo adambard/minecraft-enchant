@@ -51,7 +51,7 @@ def get_table_url(level, slot, material):
 
     return 'http://pernsteiner.org/minecraft/enchant/leveltables/{material}_{slot}_{level}.html'.format(
         material=material.title(),
-        slot=slot.title()
+        slot=slot.title(),
         level=level)
 
 def base_enchant_level(slot, material):
