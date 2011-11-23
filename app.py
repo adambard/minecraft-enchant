@@ -37,16 +37,7 @@ def result():
     slot = request.args.get('slot', 'tool')
     material = request.args.get('material', 'diamond')
 
-    if slot == 'tool':
-        pick_enchants = pick_enchant_fn(TOOL_ENCHANTS)
-    elif slot == 'sword':
-        pick_enchants = pick_enchant_fn(SWORD_ENCHANTS)
-    elif slot == 'armor':
-        pick_enchants = pick_enchant_fn(ARMOR_ENCHANTS)
-    elif slot == 'head':
-        pick_enchants = pick_enchant_fn(HEAD_ENCHANTS)
-    elif slot == 'feet':
-        pick_enchants = pick_enchant_fn(FOOT_ENCHANTS)
+    pick_enchants = pick_enchant_fn(slot)
 
     try:
         l = pick_modified_enchant_level(level, slot, material)

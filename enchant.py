@@ -84,11 +84,22 @@ def pick_modified_enchant_level(enchant_level, slot, material):
     """
     return random.randint(1, base_enchant_level(slot, material)) + enchant_level
 
-def pick_enchant_fn(base_enchant_set):
+def pick_enchant_fn(slot):
     """
     Return a function to pick an enchant, given a list
     of possibilities with weights, levels and conflict information.
     """
+    if slot == 'tool':
+        base_enchant_set = TOOL_ENCHANTS
+    elif slot == 'sword':
+        base_enchant_set = SWORD_ENCHANTS
+    elif slot == 'armor':
+        base_enchant_set = ARMOR_ENCHANTS
+    elif slot == 'head':
+        base_enchant_set = HEAD_ENCHANTS
+    elif slot == 'feet':
+        base_enchant_set = FOOT_ENCHANTS
+
     def pick_enchants(level, conflicts=[]):
         """
         Pick one or more enchants at random that meet the (modified) level criterium, and don't
