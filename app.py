@@ -73,7 +73,7 @@ def pick_modified_enchant_level(enchant_level, slot, material):
 
 def pick_enchant_fn(base_enchant_set):
     def pick_enchants(level, conflicts=[]):
-        choices = [e for e in base_enchant_set if e[0] not in conflicts and e[2][0] <= level]
+        choices = [e for e in base_enchant_set if e[0] not in conflicts and e[2][0] <= level and e[3] >= level]
 
         if len(choices) == 0:
             return []
