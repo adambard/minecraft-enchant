@@ -8,7 +8,9 @@
                 {% endfor %}
                 </ul>
 
+{% if table_url %}
 <p>
      <a href="{{ table_url }}">Detailed Results for this combination</a>
 </p>
+{% endif %}
 {% endblock %}

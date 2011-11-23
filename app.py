@@ -149,6 +149,11 @@ def result():
     except InvalidCombination:
         enchants = []
         flash("Invalid combination")
+        return render_template('result.html',
+            slot=slot,
+            material=material,
+            level=level,
+            enchants=enchants)
 
     return render_template('result.html',
             table_url=get_table_url(level, slot, material),
