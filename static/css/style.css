@@ -41,7 +41,6 @@ form, fieldset{
 }
 
 fieldset{
-    padding-left: 100px;
     position: relative;
 }
 
@@ -50,25 +49,30 @@ fieldset ul li{
     list-style: none;
     padding: 0px;
     margin: 0px;
+    clear: both;`
 }
 
 fieldset ul li label{
+    float: left;
     display: block;
     width: 100px;
-
-    position: absolute;
-    left: 0px;
 }
 
-input, select, textarea{
+fieldset input,
+fieldset select,
+fieldset textarea{
+    float: left;
     font-size: inherit;
     font-family: inherit;
 }
 
 fieldset ul li.submit{
+    clear: both;
     margin-top: 20px;
     text-align: center;
-    margin-left: -100px;
+}
+fieldset ul li.submit input{
+    float: none;
 }
 
 .result{
