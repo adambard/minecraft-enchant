@@ -68,7 +68,7 @@ fieldset textarea{
 
 fieldset ul li.submit{
     clear: both;
-    margin-top: 20px;
+    padding-top: 20px;
     text-align: center;
 }
 fieldset ul li.submit input{
